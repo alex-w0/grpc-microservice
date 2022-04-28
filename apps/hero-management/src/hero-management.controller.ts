@@ -1,12 +1,20 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller } from '@nestjs/common';
 import { HeroManagementService } from './hero-management.service';
+import {
+  Hero,
+  HeroById,
+  HeroesServiceController,
+  HeroesServiceControllerMethods,
+} from 'libs/grpc/src';
+import { Observable } from 'rxjs';
 
 @Controller()
-export class HeroManagementController {
+@HeroesServiceControllerMethods()
+export class HeroManagementController implements HeroesServiceController {
   constructor(private readonly heroManagementService: HeroManagementService) {}
 
-  @Get()
-  getHello(): string {
-    return this.heroManagementService.getHello();
+  findOne(request: HeroById): Hero | Promise<Hero> | Observable<Hero> {
+    console.log('Hero Management Controller');
+    return this.heroManagementService.getHero(request);
   }
 }

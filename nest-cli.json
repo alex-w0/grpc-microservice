@@ -8,7 +8,7 @@
     "webpack": true,
     "tsConfigPath": "apps/api/tsconfig.app.json",
     "assets": [
-      "**/*.proto"
+      "../../../libs/**/*.proto"
     ],
     "watchAssets": true
   },
@@ -21,7 +21,7 @@
       "compilerOptions": {
         "tsConfigPath": "apps/api/tsconfig.app.json",
         "assets": [
-          "**/*.proto"
+          "../../../libs/**/*.proto"
         ],
         "watchAssets": true
       }
@@ -32,7 +32,11 @@
       "entryFile": "main",
       "sourceRoot": "apps/hero-management/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/hero-management/tsconfig.app.json"
+        "tsConfigPath": "apps/hero-management/tsconfig.app.json",
+        "assets": [
+          "../../../libs/**/*.proto"
+        ],
+        "watchAssets": true
       }
     },
     "grpc": {
